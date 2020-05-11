@@ -1,0 +1,1523 @@
+<DropDownMenu@DropDown>:
+    Button:
+        text: 'Home'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'MainMenu'
+            root.dismiss()
+
+    Button:
+        text: '--------------------------'
+        size_hint_y: None
+        color: 1, .5, 0, 1
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            root.test()
+            root.dismiss()
+
+    Button:
+        text: 'New Switch'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'newswc'
+            root.dismiss()
+
+    Button:
+        text: 'New Camera'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'newcam'
+            root.dismiss()
+
+    Button:
+        text: 'New Router'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            root.dismiss()
+            app.sm.current = 'newrtr'
+
+    Button:
+        text: 'New DVR'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'newdvr'
+            root.dismiss()
+
+    Button:
+        text: 'New Phone'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'newphn'
+            root.dismiss()
+
+    Button:
+        text: 'New Insomniac'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'newksk'
+            root.dismiss()
+
+    Button:
+        text: '--------------------------'
+        color: 1, .5, 0, 1
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            root.test()
+            root.dismiss()
+
+    Button:
+        text: 'Send to Field'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'sendfld'
+            root.dismiss()
+
+    Button:
+        text: '--------------------------'
+        color: 1, .5, 0, 1
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            root.test()
+            root.dismiss()
+
+    Button:
+        text: 'Inventory Stats'
+        size_hint_y: None
+        height: 48
+        background_down: 'orange.png'
+        on_release: 
+            app.sm.current = 'invstat'
+            root.dismiss()
+
+<MainScreen>
+	name: "MainMenu"
+    btn: btn
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+	FloatLayout:
+        Label:
+            text:"Home"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: 
+                root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+          
+
+<NewDVR>
+	name: "newdvr"
+
+    dvrnotes: dvrnotes
+
+    on_enter:
+        dvrnotes.text = ''
+
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New DVR"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: dvrnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            focus: False
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.68
+            cursor_color: 1, .5, 0, 1
+            
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitdvr()
+                dvrnotes.text = ''
+
+<NewRTR>
+    name: "newrtr"
+
+    rtrtog1: rtrtog1
+    rtrtog2: rtrtog2
+    rtrtog3: rtrtog3
+    rtrnotes: rtrnotes
+
+    on_enter:
+        rtrtog1.state = 'normal'
+        rtrtog2.state = 'normal'
+        rtrtog3.state = 'normal'
+        rtrnotes.text = ''
+    
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New Router"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Label:
+            text:"Model Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.025, "y":.675}
+            size_hint: 0.5, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: rtrnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            focus: False
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.58
+            cursor_color: 1, .5, 0, 1
+            
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitrtr()
+                rtrtog1.state = 'normal'
+                rtrtog2.state = 'normal'
+                rtrtog3.state = 'normal'
+                rtrnotes.text = ''
+
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        ToggleButton:
+            group: "rtrmodel"
+            id: rtrtog1
+            pos_hint:{"x":0.35,"y":0.71}
+            size_hint: 0.19, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "1200b"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "rtrmodel"
+            id: rtrtog2      
+            pos_hint:{"x":0.55,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "1400"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "rtrmodel"
+            id: rtrtog3
+            pos_hint:{"x":0.76,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "1650"
+            background_down: 'orange.png'
+
+        
+
+<NewSWC>
+    name: "newswc"
+
+    swctog1: swctog1
+    swctog2: swctog2
+    swcports: swcports
+    swcnotes: swcnotes
+
+    on_enter:
+        swctog1.state = 'normal'
+        swctog2.state = 'normal'
+        swcports.text = ''
+        swcnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New Switch"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+     
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        ToggleButton:
+            group: "swctype"
+            id: swctog1
+            pos_hint:{"x":0.35,"y":0.71}
+            size_hint: 0.19, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Fiber"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "swctype"
+            id: swctog2      
+            pos_hint:{"x":0.55,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Non-Fiber"
+            background_down: 'orange.png'
+
+        Label:
+            text:"Type of Switch:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.025, "y":.675}
+            size_hint: 0.5, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Number of Ports:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.132, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitswc()
+                swctog1.state = 'normal'
+                swctog2.state = 'normal'
+                swcports.text = ''
+                swcnotes.text = ''
+
+        TextInput:
+            id: swcports
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.36 , "y":0.625}
+            size_hint: 0.614, 0.05
+            cursor_color: 1, .5, 0, 1
+            input_filter: 'int'
+
+        TextInput:
+            id: swcnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.70, 0.48
+            cursor_color: 1, .5, 0, 1
+
+<NewCAM>
+    name: "newcam"
+
+    camnotes: camnotes
+    camtog1: camtog1
+    camtog2: camtog2
+
+    on_enter:
+        camtog1.state = 'normal'
+        camtog2.state = 'normal'
+        camnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New Camera"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Camera Type:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.0185, "y":.675}
+            size_hint: 0.5, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: camnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            focus: False
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.58
+            cursor_color: 1, .5, 0, 1
+            
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitcam()
+                camtog1.state = 'normal'
+                camtog2.state = 'normal'
+                camnotes.text = ''
+
+        ToggleButton:
+            group: "camtype"
+            id: camtog1
+            pos_hint:{"x":0.35,"y":0.71}
+            size_hint: 0.19, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Bullet Cam"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "camtype"
+            id: camtog2      
+            pos_hint:{"x":0.55,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Dome Cam"
+            background_down: 'orange.png'
+
+<NewPHN>
+    name: "newphn"
+    phnnotes: phnnotes
+    imei: imei
+    phntog1: phntog1
+    phntog2: phntog2
+    phntog3: phntog3
+    phntog4: phntog4
+
+    on_enter:
+        phntog1.state = 'normal'
+        phntog2.state = 'normal'
+        phntog3.state = 'normal'
+        phntog4.state = 'normal'
+        imei.text = ''
+        phnnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New Phone"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        ToggleButton:
+            group: "phnmodel"
+            id: phntog1
+            pos_hint:{"x":0.35,"y":0.71}
+            size_hint: 0.19, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Galaxy S8+"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "phnmodel"
+            id: phntog2      
+            pos_hint:{"x":0.55,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Galaxy S10"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "phncondition"
+            id: phntog3
+            pos_hint:{"x":0.35,"y":0.61}
+            size_hint: 0.19, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Used"
+            background_down: 'orange.png'
+
+        ToggleButton:
+            group: "phncondition"
+            id: phntog4      
+            pos_hint:{"x":0.55,"y":0.61}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "New"
+            background_down: 'orange.png'
+
+        Label:
+            text:"Model Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.025, "y":.675}
+            size_hint: 0.5, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Condition:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.103, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"IMEI:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.081, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.375}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitphn()
+                phntog1.state = 'normal'
+                phntog2.state = 'normal'
+                phntog3.state = 'normal'
+                phntog4.state = 'normal'
+                imei.text = ''
+                phnnotes.text = ''
+
+        TextInput:
+            id: imei
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.275 , "y":0.525}
+            size_hint: 0.70, 0.05
+            cursor_color: 1, .5, 0, 1
+            input_filter: 'int'
+
+        TextInput:
+            id: phnnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.70, 0.38
+            cursor_color: 1, .5, 0, 1
+
+<NewKSK>
+    name: "newksk"
+
+    propnum: propnum
+    ksknotes: ksknotes
+
+    on_enter:
+        propnum.text = ''
+        ksknotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"New Insomniac"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+
+        Label:
+            text:"Proptery Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release:
+                root.submitksk()
+                propnum.text = ''
+                ksknotes.text = ''
+
+        TextInput:
+            id: propnum
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.37 , "y":0.725}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+            input_filter: 'int'
+
+        TextInput:
+            id: ksknotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.70, 0.58
+            cursor_color: 1, .5, 0, 1
+
+<Sendfld>
+    name: "sendfld"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Device to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Button:
+            id: sendswc      
+            pos_hint:{"x":0.78,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out Switch"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'sendswc'
+        Button:
+            id: sendrtr     
+            pos_hint:{"x":0.50,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out Router"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'sendrtr'
+        Button:
+            id: sendcam      
+            pos_hint:{"x":0.50,"y":0.61}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out Camera"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'sendcam'
+        Button:
+            id: sendphn      
+            pos_hint:{"x":0.22,"y":0.61}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out Phone"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'sendphn'
+        Button:
+            id: sendksk      
+            pos_hint:{"x":0.78,"y":0.61}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out Insomniac"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'sendksk'
+        Button:
+            id: senddvr     
+            pos_hint:{"x":0.22,"y":0.71}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            text: "Send out DVR"
+            background_down: 'orange.png'
+            on_release: app.sm.current = 'senddvr'
+<SendCAM>
+    name: "sendcam"
+
+    camprop: camprop
+    camid: camid
+    sendcamnotes: sendcamnotes
+
+    on_enter:
+        camprop.text = ''
+        camid.text = 'CAM'
+        camid.focus = True
+        sendcamnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Camera to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Camera ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.107, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            id: sendcambtn
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.sendcam()
+                camprop.text = ''
+                camid.text = 'CAM'
+                sendcamnotes.text = ''
+
+        TextInput:
+            id: camprop
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            on_text_validate:
+                sendcamnotes.focus = True
+            pos_hint: {"x": 0.37 , "y":0.625}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        TextInput:
+            id: camid
+            on_text_validate:
+                root.fillsncam()
+                camprop.focus = True 
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.31 , "y":0.725}
+            size_hint: 0.666, 0.05
+            cursor_color: 1, .5, 0, 1
+
+
+        Label:
+            text:"Property Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: sendcamnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.48
+            cursor_color: 1, .5, 0, 1
+
+<SendDVR>
+    name: "senddvr"
+
+    dvrprop: dvrprop
+    dvrid: dvrid
+    senddvrnotes: senddvrnotes
+
+    on_enter:
+        dvrprop.text = ''
+        dvrid.text = 'DVR'
+        dvrid.focus = True
+        senddvrnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send DVR to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"DVR ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.090, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            id: senddvrbtn
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.senddvr()
+                dvrprop.text = ''
+                dvrid.text = 'DVR'
+                senddvrnotes.text = ''
+
+        TextInput:
+            id: dvrprop
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            on_text_validate:
+                senddvrnotes.focus = True
+            pos_hint: {"x": 0.37 , "y":0.625}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        TextInput:
+            id: dvrid
+            on_text_validate:
+                root.fillsndvr()
+                dvrprop.focus = True 
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.28 , "y":0.725}
+            size_hint: 0.695, 0.05
+            cursor_color: 1, .5, 0, 1
+
+
+        Label:
+            text:"Property Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: senddvrnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.48
+            cursor_color: 1, .5, 0, 1 
+
+<SendKSK>
+    name: "sendksk"
+
+    kskid: kskid
+
+    on_enter:
+        kskid.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Insomniac to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Insomniac ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.102, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.sendksk()
+                kskid.text = ''
+
+        TextInput:
+            id: kskid
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: True
+            pos_hint: {"x": 0.37 , "y":0.725}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+<SendRTR>
+    name: "sendrtr"
+
+    rtrprop: rtrprop
+    rtrid: rtrid
+    sendrtrnotes: sendrtrnotes
+
+    on_enter:
+        rtrprop.text = ''
+        rtrid.text = 'RTR'
+        rtrid.focus = True
+        sendrtrnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Router to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Router ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.101, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            id: sendrtrbtn
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.sendrtr()
+                rtrprop.text = ''
+                rtrid.text = 'DVR'
+                sendrtrnotes.text = ''
+
+        TextInput:
+            id: rtrprop
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            on_text_validate:
+                sendrtrnotes.focus = True
+            pos_hint: {"x": 0.37 , "y":0.625}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        TextInput:
+            id: rtrid
+            on_text_validate:
+                root.fillsnrtr()
+                rtrprop.focus = True 
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.3 , "y":0.725}
+            size_hint: 0.675, 0.05
+            cursor_color: 1, .5, 0, 1
+
+
+        Label:
+            text:"Property Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: sendrtrnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.48
+            cursor_color: 1, .5, 0, 1 
+<SendPHN>
+    name: "sendphn"
+
+    phnuser: phnuser
+    phnnum: phnnum
+    phnid: phnid
+
+    on_enter:
+        phnuser.text = ''
+        phnid.text = ''
+        phnnum.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Phone to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Phone ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.102, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.sendphn()
+                phnuser.text = ''
+                phnid.text = ''
+                phnnum.text = ''
+
+        TextInput:
+            id: phnnum
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.37 , "y":0.625}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        TextInput:
+            id: phnid
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: True
+            pos_hint: {"x": 0.37 , "y":0.725}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        Label:
+            text:"Phone Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Assigned User:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: phnuser
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.37 , "y":0.525}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+<SendSWC>
+    name: "sendswc"
+
+    swcprop: swcprop
+    swcid: swcid
+    sendswcnotes: sendswcnotes
+
+    on_enter:
+        swcprop.text = ''
+        swcid.text = 'SWC'
+        swcid.focus = True
+        sendswcnotes.text = ''
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Send Switch to Field"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+        Label:
+            text:"Switch ID:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.102, "y":.675}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Button:
+            id: sendswcbtn
+            pos_hint:{"x":.535,"y":.02}
+            size_hint: .15, 0.05
+            font_size: (root.width**2 + root.height**2) / 19**4
+            text: "Submit"
+            background_down: 'blue.png'
+            on_release: 
+                root.sendswc()
+                swcprop.text = ''
+                swcid.text = 'SWC'
+                sendswcnotes.text = ''
+
+        TextInput:
+            id: swcprop
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            on_text_validate:
+                sendswcnotes.focus = True
+            pos_hint: {"x": 0.37 , "y":0.625}
+            size_hint: 0.605, 0.05
+            cursor_color: 1, .5, 0, 1
+
+        TextInput:
+            id: swcid
+            on_text_validate:
+                root.fillsnswc()
+                swcprop.focus = True 
+            font_size: (root.width**2 + root.height**2) / 18**4
+            multiline: False
+            pos_hint: {"x": 0.3 , "y":0.725}
+            size_hint: 0.675, 0.05
+            cursor_color: 1, .5, 0, 1
+
+
+        Label:
+            text:"Property Number:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.135, "y":.575}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        Label:
+            text:"Notes:"
+            font_size: (root.width**2 + root.height**2) / 17**4
+            pos_hint: {"x":0.087, "y":.475}
+            size_hint: 0.3, 0.15
+            color: 0,0,0,1
+
+        TextInput:
+            id: sendswcnotes
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: True
+            pos_hint: {"x": 0.275 , "y":0.09}
+            size_hint: 0.7, 0.48
+            cursor_color: 1, .5, 0, 1 
+
+<Invstat>
+    name: "invstat"
+
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, .8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+
+        Label:
+            text:"Inventory Stats"
+            font_size: (root.width**2 + root.height**2) / 15**4
+            pos_hint: {"x":0.35, "top":1.035}
+            size_hint: 0.5, 0.15
+            color: 0,0,1,1
+            underline: True
+            bold: True
+
+        Button:
+            id: btn
+            text: 'Menu'
+            on_release: root.open_menu(self)
+            pos_hint:{"x":0.001,"y":0.92}
+            size_hint: 0.2, 0.075
+            font_size: (root.width**2 + root.height**2) / 17**4
+            background_normal: ''
+            background_color: (0.0, 0.0, 1.0, 1.0)
+
+        Image:
+            source: 'line.png'
+            size: self.texture_size
+            pos_hint: {'right':.705, 'top':1}
+            allow_stretch: True
+            keep_ratio: True
+
+
+
+                
+        
